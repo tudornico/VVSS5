@@ -1,0 +1,46 @@
+
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+    }
+    dependencies {
+        classpath("net.serenity-bdd:serenity-gradle-plugin:1.4.0")
+    }
+}
+plugins{
+    id 'java'
+    id "net.serenity-bdd.serenity-gradle-plugin" version "3.7.0"
+    id 'idea'
+
+//    id 'net.serenity-bdd.serenity-gradle-plugin'
+}
+
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+
+
+
+dependencies {
+    implementation('net.serenity-bdd:serenity-junit:1.4.0')
+    implementation('junit:junit:4.13.1')
+    implementation('org.assertj:assertj-core:1.7.0')
+    implementation('org.slf4j:slf4j-simple:1.7.7')
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+gradle.startParameter.continueOnFailure = true
